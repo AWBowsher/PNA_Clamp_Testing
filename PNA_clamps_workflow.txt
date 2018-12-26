@@ -1,0 +1,118 @@
+#Raw data can be found at: /mnt/research/ShadeLab/Sequence/raw_sequence/Bowsher/20181112_16S-V4_PE250
+
+#HPCC analyses files can be found at: /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNAclamps
+
+#######################################################################################################
+
+#GUNZIP ALL RAW DATA FILES
+cd /mnt/research/ShadeLab/Sequence/raw_sequence/Bowsher/20180525_16S-V4_PE250
+gunzip *.gz
+
+#RENAME FILES AND MOVE THEM INTO NEW DIRECTORY IN WORKINGSPACE.
+	#Renaming: this is important because, for example, there are samples named "SGLeaf_10ng..." and "SGLeaf_100ng...".
+	#This will not work in later steps, because '-fastq_mergepairs' will abbreviate both samples as "SGLeaf"
+	#Moving to new folder: this is important because we're renaming (i.e. manipulating) the raw data, so we want any alterations in a separate space.
+
+
+cp BeanRoot_1ng_00_S13_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/BeanRoot1ng0clamp_S13_L001_R1_001.fastq
+cp BeanRoot_1ng_00_S13_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/BeanRoot1ng0clamp_S13_L001_R2_001.fastq
+cp BeanRoot_1ng_25_S14_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/BeanRoot1ng25clamp_S14_L001_R1_001.fastq
+cp BeanRoot_1ng_25_S14_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/BeanRoot1ng25clamp_S14_L001_R2_001.fastq
+cp BeanRoot_1ng_50_S15_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/BeanRoot1ng50clamp_S15_L001_R1_001.fastq
+cp BeanRoot_1ng_50_S15_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/BeanRoot1ng50clamp_S15_L001_R2_001.fastq
+cp BeanRoot_1ng_75_S16_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/BeanRoot1ng75clamp_S16_L001_R1_001.fastq
+cp BeanRoot_1ng_75_S16_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/BeanRoot1ng75clamp_S16_L001_R2_001.fastq
+cp SGLeaf_100ng_00_S9_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf100ng0clamp_S9_L001_R1_001.fastq
+cp SGLeaf_100ng_00_S9_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf100ng0clamp_S9_L001_R2_001.fastq
+cp SGLeaf_100ng_25_S10_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf100ng25clamp_S10_L001_R1_001.fastq
+cp SGLeaf_100ng_25_S10_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf100ng25clamp_S10_L001_R2_001.fastq
+cp SGLeaf_100ng_50_S11_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf100ng50clamp_S11_L001_R1_001.fastq
+cp SGLeaf_100ng_50_S11_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf100ng50clamp_S11_L001_R2_001.fastq
+cp SGLeaf_100ng_75_S12_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf100ng75clamp_S12_L001_R1_001.fastq
+cp SGLeaf_100ng_75_S12_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf100ng75clamp_S12_L001_R2_001.fastq
+cp SGLeaf_10ng_00_S5_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf10ng0clamp_S5_L001_R1_001.fastq
+cp SGLeaf_10ng_00_S5_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf10ng0clamp_S5_L001_R2_001.fastq
+cp SGLeaf_10ng_25_S6_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf10ng25clamp_S6_L001_R1_001.fastq
+cp SGLeaf_10ng_25_S6_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf10ng25clamp_S6_L001_R2_001.fastq
+cp SGLeaf_10ng_50_S7_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf10ng50clamp_S7_L001_R1_001.fastq
+cp SGLeaf_10ng_50_S7_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf10ng50clamp_S7_L001_R2_001.fastq
+cp SGLeaf_10ng_75_S8_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf10ng75clamp_S8_L001_R1_001.fastq
+cp SGLeaf_10ng_75_S8_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf10ng75clamp_S8_L001_R2_001.fastq
+cp SGLeaf_1ng_00_S1_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf1ng0clamp_S1_L001_R1_001.fastq
+cp SGLeaf_1ng_00_S1_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf1ng0clamp_S1_L001_R2_001.fastq
+cp SGLeaf_1ng_25_S2_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf1ng25clamp_S2_L001_R1_001.fastq
+cp SGLeaf_1ng_25_S2_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf1ng25clamp_S2_L001_R2_001.fastq
+cp SGLeaf_1ng_50_S3_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf1ng50clamp_S3_L001_R1_001.fastq
+cp SGLeaf_1ng_50_S3_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf1ng50clamp_S3_L001_R2_001.fastq
+cp SGLeaf_1ng_75_S4_L001_R1_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf1ng75clamp_S4_L001_R1_001.fastq
+cp SGLeaf_1ng_75_S4_L001_R2_001.fastq /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/SGLeaf1ng75clamp_S4_L001_R2_001.fastq
+
+
+#MOVE TO WORKINGSPACE, AND VERIFY THE FILES HAVE BEEN RENAMED CORRECTLY.
+cd /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest
+
+#CHECK THAT THE CORRECT NUMBER OF FILES HAVE BEEN MOVED (SHOULD BE 32)
+ls -1 | wc -l
+
+#MOVE THE DATA TO NEW DIRECTORY
+mkdir InputData
+mv *.fastq InputData/
+
+#MERGE PAIRS
+mkdir mergedfastq
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -fastq_mergepairs InputData/*R1*.fastq -fastq_maxdiffs 10 -relabel @ -fastqout mergedfastq/merged.fastq -tabbedout mergedfastq/merged.report.txt -alnout mergedfastq/merged_aln.txt -threads 1
+
+#CHECK SEQUENCE QUALITY OF MERGED SEQS
+mkdir fastq_info
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -fastq_eestats2 mergedfastq/merged.fastq
+
+#REMOVE ADAPTER SEQS (cut the reverse complement of primer2, and the actual sequence of Primer1).
+#install cutadapt (this is version 1.18)
+pip install --user --upgrade cutadapt
+#run cutadapt
+~/.local/bin/cutadapt -a ATTAGAWACCCBDGTAGTCC -a GTGCCAGCMGCCGCGGTAA -o cut_merged.fastq mergedfastq/merged.fastq > cut_adpt_results.txt
+
+#FILTER AND TRUNCATE THE MERGED SEQS
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -fastq_filter cut_merged.fastq -fastq_maxee 1 -fastq_trunclen 250 -fastaout filtered_merged.fa -threads 1
+
+#DEREPLICATE (COMBINE IDENTICAL READS INTO UNIQUE SEQUENCES TO REDUCE FUTURE COMPUTATIONAL TIME BY ELIMINATING REDUNDANT COMPARISONS).
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -fastx_uniques filtered_merged.fa -fastaout uniques_filtered_merged.fa -sizeout -threads 1
+
+#CLUSTER INTO 0.97 OTUS
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -cluster_otus uniques_filtered_merged.fa -otus otus.fasta -uparseout otus_uparse.txt -relabel OTU
+
+#MAP READS BACK TO THE OTUS AT 97% IDENTITY
+/mnt/research/rdp/public/thirdParty/usearch10.0.240_i86linux64 -otutab mergedfastq/merged.fastq -otus otus.fasta -uc OTU_map.uc -otutabout OTU_table.txt -biomout OTU_jsn.biom -notmatchedfq otu_unmapped.fq
+
+#CLASSIFYING THE OTUS
+#First, download the latest Silva taxonomy annotations and alignment file from the following link:
+#https://www.mothur.org/wiki/Silva_reference_files
+#Move the Silva reference files to the WorkingSpace
+mv Silva.nr_v132.tgz /mnt/research/ShadeLab/WorkingSpace/Bowsher/PNA_ClampTest/
+#Now decompress and extract the files:
+tar -xvzf Silva.nr_v132.tgz
+
+#load mothur
+module load icc/2017.1.132-GCC-6.3.0-2.27  impi/2017.1.132
+module load Mothur/1.41.0-Python-2.7.13
+mothur
+classify.seqs(fasta=otus.fasta, template=silva.nr_v132.align, taxonomy=silva.nr_v132.tax, method=wang, probs=F)
+quit()
+
+
+
+#FINDING MITOCHONDRIAL AND PLANT-DERIVED CONTAMINANTS and UNASSIGNED contaminants
+grep "hloroplast" otus.nr_v132.wang.taxonomy > chloro.txt
+grep "itochondria" otus.nr_v132.wang.taxonomy > mito.txt
+grep "unknown_unclassified" otus.nr_v132.wang.taxonomy > unclass.txt
+cut -f1 chloro.txt mito.txt  > Contaminant_OTUs.txt
+
+#REMOVE CONTAMINANT OTUS FROM THE OTU TABLE
+grep -v -Fwf Contaminant_OTUs.txt OTU_table.txt > Clean_OTU_table.txt   
+   
+#MOVE RELEVANT FILES TO R for analysis
+	#OTU_table.txt
+	#Clean_OTU_table.txt
+
+
+
